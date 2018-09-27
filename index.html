@@ -114,6 +114,10 @@ permalink: /
                     {% if site.public_key_url %}
                     <li><a class="fa fa-2x fa-key" href="{{ site.public_key_url }}"><span class="description">PGP Key</span></a></li>
                     {% endif %}
+
+                    {% if site.cv_so %}
+                    <li><a class="fa fa-2x fa-key" href="https://stackoverflow.com/cv/{{ site.cv_so }}"><span class="description">PGP Key</span></a></li>
+                    {% endif %}
                 </ul>
         </div>
 
