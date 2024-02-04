@@ -1,125 +1,229 @@
----
-permalink: /
----
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{{ site.description }}">
-        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-        {% if site.favicon_img %}
-        <link rel="shortcut icon" href="{{ site.favicon_img_path }}" />
-        {% endif %}
-        <link rel="stylesheet" href="{{ "css/front.css" | prepend: site.baseurl }}">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="content">
-            {% if site.front_img %}
-            <img src="{{ site.front_img_path }}" id="fullscreen">
-            {% endif %}
-
-            {% if site.avatar %}
-                <img src="{{ site.avatar_img_path }}" id="avatar">
-            {% endif %}
-
-            <h1>{{ site.name }}</h1>
-            <h3>{{ site.description }}</h3>
-
-                <ul>
-                    {% if site.github_username %}
-                    <li><a class="fa fa-2x fa-github" href="https://github.com/{{ site.github_username }}"><span class="description">GitHub</span></a></li>
-                    {% endif %}
-
-                    {% if site.codepen_username %}
-                    <li><a class="fa fa-2x fa-codepen" href="https://codepen.io/{{ site.codepen_username }}"><span class="description">CodePen</span></a></li>
-                    {% endif %}
-
-                    {% if site.facebook_username %}
-                    <li><a class="fa fa-2x fa-facebook" href="https://facebook.com/{{ site.facebook_username }}"><span class="description">Facebook</span></a></li>
-                    {% endif %}
-
-                    {% if site.vk_username %}
-                    <li><a class="fa fa-2x fa-vk" href="https://vk.com/{{ site.vk_username }}"><span class="description">ВКонтакте</span></a></li>
-                    {% endif %}
-
-                    {% if site.twitter_username %}
-                    <li><a class="fa fa-2x fa-twitter" href="https://twitter.com/{{ site.twitter_username }}"><span class="description">Twitter</span></a></li>
-                    {% endif %}
-
-                    {% if site.google_plus_username %}
-                    <li><a class="fa fa-2x fa-google-plus" href="https://plus.google.com/+{{ site.google_plus_username }}"><span class="description">Google +</span></a></li>
-                    {% endif %}
-
-                    {% if site.linkedin_username %}
-                    <li><a class="fa fa-2x fa-linkedin" href="https://linkedin.com/in/{{ site.linkedin_username }}"><span class="description">LinkedIn</span></a></li>
-                    {% endif %}
-
-                    {% if site.vine_username %}
-                    <li><a class="fa fa-2x fa-vine" href="https://vine.co/{{ site.vine_username }}"><span class="description">Vine</span></a></li>
-                    {% endif %}
-
-                    {% if site.instagram_username %}
-                    <li><a class="fa fa-2x fa-instagram" href="https://instagram.com/{{ site.instagram_username }}"><span class="description">Instagram</span></a></li>
-                    {% endif %}
-
-                    {% if site.flickr_usernmae %}
-                    <li><a class="fa fa-2x fa-flickr" href="https://flickr.com/photos/{{ site.flickr_username }}"><span class="description">Flickr</span></a></li>
-                    {% endif %}
-
-                    {% if site.steam_username %}
-                    <li><a class="fa fa-2x fa-steam" href="http://steamcommunity.com/id/{{ site.steam_username }}"><span class="description">Steam</span></a></li>
-                    {% endif %}
-
-                    {% if site.soundcloud_username %}
-                    <li><a class="fa fa-2x fa-soundcloud" href="https://soundcloud.com/{{ site.soundcloud_username }}"><span class="description">Soundcloud</span></a></li>
-                    {% endif %}
-
-                    {% if site.lastfm_username %}
-                    <li><a class="fa fa-2x fa-lastfm" href="http://www.last.fm/user/{{ site.lastfm_username }}"><span class="description">Last.fm</span></a></li>
-                    {% endif %}
-
-                    {% if site.stack_of_username %}
-                    <li><a class="fa fa-2x fa-stack-overflow" href="https://stackoverflow.com/users/{{ site.stack_of_username }}"><span class="description">Stack OF</span></a></li>
-                    {% endif %}
-
-                    {% if site.reddit_username %}
-                    <li><a class="fa fa-2x fa-reddit" href="https://reddit.com/user/{{ site.reddit_username }}"><span class="description">Reddit</span></a></li>
-                    {% endif %}
-
-                    {% if site.medium_username %}
-                    <li><a class="fa fa-2x fa-medium" href="https://medium.com/@{{ site.medium_username }}"><span class="description">Medium</span></a></li>
-                    {% endif %}
-
-                    {% if site.tumblr_username %}
-                    <li><a class="fa fa-2x fa-tumblr" href="https://{{ site.tumblr_username }}.tumblr.com/"><span class="description">Tumblr</span></a></li>
-                    {% endif %}
-
-                    {% if site.weibo_username %}
-                    <li><a class="fa fa-2x fa-weibo" href="https://weibo.com/{{ site.weibo_username }}"><span class="description">微博</span></a></li>
-                    {% endif %}
-
-                    {% if site.blog_url %}
-                    <li><a class="fa fa-2x fa-tags" href="{{ site.baseurl }}{{ site.blog_url }}"><span class="description">Blog</span></a></li>
-                    {% endif %}
-
-                    {% if site.email %}
-                    <li><a class="fa fa-2x fa-envelope" href="mailto:{{ site.email }}"><span class="description">Email</span></a></li>
-                    {% endif %}
-
-                    {% if site.public_key_url %}
-                    <li><a class="fa fa-2x fa-key" href="{{ site.public_key_url }}"><span class="description">PGP Key</span></a></li>
-                    {% endif %}
-
-                    {% if site.cv_so %}
-                    <li><a class="fa fa-2x fa-user" href="https://stackoverflow.com/cv/{{ site.cv_so }}"><span class="description">CV</span></a></li>
-                    {% endif %}
-                </ul>
-        </div>
-
-    </body>
+<html lang="en">
+   <head>
+      <title>Максим Егоров - Senior Frontend Developer</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="Proglib">
+      <link rel="shortcut icon" href="assets/favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+      <script defer src="assets/fonts/all.min.js"></script>
+      <link id="theme-style" rel="stylesheet" href="assets/css/style.css">
+      <link id="additional-style" rel="stylesheet" href="assets/css/resume.css">
+   </head>
+   <body>
+      <div class="main-wrapper">
+         <div class="container px-3 px-lg-5">
+            <article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg rounded">
+               <div class="resume-header">
+                  <div class="row align-items-center">
+                     <div class="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
+                        <h2 class="resume-name mb-0 text-uppercase">Artiom Carabas</h2>
+                        <div class="resume-tagline mb-3 mb-md-0">Professional Android Developer</div>
+                     </div>
+                     <div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
+                        <ul class="list-unstyled mb-0">
+                           <li class="mb-2"><i class="fas fa-phone-square fa-fw fa-lg me-2 "></i><a class="resume-link" href="tel:#">+49 15758759901</a></li>
+                           <li class="mb-2"><i class="fas fa-envelope-square fa-fw fa-lg me-2"></i><a class="resume-link" href="mailto:#">artemcarabash@gmail.com</a></li>
+                           <li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="#">artemcarabash.github.io</a></li>
+                           <li class="mb-0"><i class="fas fa-map-marker-alt fa-fw fa-lg me-2"></i>Freiburg, Deutschland</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+               <div class="resume-intro py-3">
+                  <div class="row align-items-center">
+                     <div class="col-12 col-md-3 col-xl-2 text-center">
+                        <img class="resume-profile-image mb-3 mb-md-0 me-md-5  ms-md-0 rounded mx-auto rounded-circle" src="assets/img/photo.jpg" alt="image">
+                     </div>
+                     <div class="col text-start">
+                        <p class="mb-0">After 5 years full of different technologies from Embedded systems to cloud solutions I have landed at the place where I feel is right one for me. In the end of 2021 I started at lexoffice as Android Developer to support small business mastering their bookkeeping. In the past worked a lot with embedded systems like vendor terminals and multi-function printers on huge project for world-known printers manufacturer. Stack: .NET C#, ASP .NET, Web (JavaScript, CSS, HTML), NodeJS, Mobile (Android, iOS). I had to work with protocols, technologies and frameworks such as: GRPC and RESTful web services, IPP, SNMP, LDAP and others. Also all related to printing page description languages like PJL, PostScript and PDF. </p>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+               <div class="resume-body">
+                  <div class="row">
+                     <div class="resume-main col-12 col-lg-8 col-xl-9   pe-0   pe-lg-5">
+                        <section class="work-section py-3">
+                           <h3 class="text-uppercase resume-section-heading mb-4">BERUFSERFAHRUNG</h3>
+                           <div class="item mb-3">
+                              <div class="item-heading row align-items-center mb-2">
+                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 text-primary">Professional Android Entwickler</h4>
+                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">lexoffice @ Haufe-Lexware | November 2021 - aktuell</div>
+                              </div>
+                              <div class="item-content">
+                                 <ul class="resume-list">
+                                    <li>App-Entwicklung: Verantwortlich für den gesamten Lebenszyklus der Android-Anwendungen, von der Ideenfindung bis zur Bereitstellung im Google Play Store.</li>
+                                    <li>Programmierung: Implementierung von robustem und effizientem Code in Kotlin und Java, um eine optimale Performance und Benutzererfahrung sicherzustellen.</li>
+                                    <li>UI/UX-Optimierung: Durchführung von UI/UX-Analysen und Implementierung von Verbesserungen zur Steigerung der Benutzerfreundlichkeit und Attraktivität der Anwendungen.</li>
+                                    <li>API-Integration: Erfolgreiche Integration von Backend-Services durch die Nutzung von RESTful APIs, um eine nahtlose Kommunikation zwischen mobilen Anwendungen und Servern zu gewährleisten.</li>
+                                    <li>Qualitätssicherung: Implementierung von umfassenden Tests und Debugging-Verfahren, um die Qualität der Anwendungen sicherzustellen und Fehler zu minimieren.</li>
+                                    <li>Aktualisierungen und Wartung: Verantwortlich für regelmäßige Aktualisierungen, Fehlerbehebungen und Sicherheitspatches, um die Anwendungen auf dem neuesten Stand zu halten.</li>
+                                 </ul>
+                                 <hr>
+                              </div>
+                           </div>
+                           <div class="item mb-3">
+                              <div class="item-heading row align-items-center mb-2">
+                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 text-primary">Software-Entwickler für Druckserver Anwendungen</h4>
+                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">SECANDA Systems | November 2016 - Oktober 2021</div>
+                              </div>
+                              <div class="item-content">
+                                 <ul class="resume-list">
+                                    <li>Entwicklung und Unterstützung von Druckserveranwendungen;</li>
+                                    <li>Entwicklung und Unterstützung von mobilen Anwendungen (iOS, Android);</li>
+                                    <li>Entwicklung von Schnittstellen für Hardware-Terminals;</li>
+                                 </ul>
+                                 <hr>
+                              </div>
+                           </div>
+                           <div class="item mb-3">
+                              <div class="item-heading row align-items-center mb-2">
+                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0  text-primary">(Praktikum) Software-Entwickler</h4>
+                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Control Systems GmbH & Co. KG | September 2015 - September 2016</div>
+                              </div>
+                              <div class="item-content">
+                                 <ul class="resume-list">
+                                    <li>Forschungsarbeit im Bereich Cloud-Drucksysteme und Netzwerkdrucker (MFP)</li>
+                                    <li>Implementierung und Testen von neuen Funktionen für das Hauptdruckmanagementsystem</li>
+                                    <li>Schreiben von unterstützenden Tools für die Hauptlösung unter Verwendung verschiedener Versionen von SNMP-Protokollen</li>
+                                    <li>Entwicklung und Betreuung von mobilen Apps (Android, iOS) </li>
+                                 </ul>
+                                 <hr>
+                              </div>
+                           </div>
+                           <div class="item">
+                              <div class="item-heading row align-items-center mb-2">
+                                 <h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0 text-primary">Android Developer</h4>
+                                 <div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Funway Interactive | Mai 2015 - September 2015</div>
+                              </div>
+                              <div class="item-content">
+                                 <ul class="resume-list">
+                                    <li>Entwurf, Erstellung und Wartung von Android-Anwendungen</li>
+                                    <li>Sicherstellung der bestmöglichen Leistung, Qualität und Reaktionsfähigkeit der Anwendung</li>
+                                    <li>Identifizierung und Korrektur von Engpässen und Behebung von Fehlern</li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </section>
+                        <section class="project-section py-3">
+                           <h3 class="text-uppercase resume-section-heading mb-4">Projekte</h3>
+                           <div id="carouselResumeControls" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="false">
+                              <div class="carousel-inner">
+                                 <div class="carousel-item active">
+                                    <div class="container">
+                                       <div class="row row-cols-1 row-cols-md-3 g-4">
+                                          <div class="col">
+                                             <div class="card" >
+                                                <img src="assets/img/projects/project2.png" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                   <h5 class="card-title">lexoffice - Buchhaltung einfach gemacht</h5>
+                                                   <p class="card-text small">Buchhaltung App für Kleinst- und Kleinunternehmer</p>
+                                                   <div class="text-end">
+                                                      <a href="https://www.lexoffice.de/" class="stretched-link"></a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="col">
+                                             <div class="card" >
+                                                <img src="assets/img/projects/project1.png" class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                   <h5 class="card-title">e-FOLLOW</h5>
+                                                   <p class="card-text small">Printing Solution for Toshiba MFPs</p>
+                                                   <div class="text-end">
+                                                      <a href="https://play.google.com/store/apps/developer?id=Control+Systems+GmbH+%26+Co+KG&hl=de&gl=US" class="stretched-link"></a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="carousel-item">
+                                    <div class="container">
+                                       <div class="row row-cols-1 row-cols-md-3 g-4">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <a class="carousel-control-prev" href="#carouselResumeControls" role="button" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="carousel-control-next" href="#carouselResumeControls" role="button" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                              </a>
+                           </div>
+                        </section>
+                     </div>
+                     <aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
+                        <section class="skills-section py-3">
+                           <h3 class="text-uppercase resume-section-heading mb-4">Kompetenzen</h3>
+                           <div class="item">
+                              <ul class="list-unstyled resume-skills-list">
+                                 <li class="mb-2">Java</li>
+                                 <li class="mb-2">Kotlin</li>
+                                 <li class="mb-2">Android Framework</li>
+                                 <li class="mb-2">Jetpack</li>
+                                 <li class="mb-2">MVVM</li>
+                                 <li class="mb-2">REST</li>
+                                 <li class="mb-2">Git</li>
+                              </ul>
+                           </div>
+                        </section>
+                        <section class="education-section py-3">
+                           <h3 class="text-uppercase resume-section-heading mb-4">Ausbildung</h3>
+                           <ul class="list-unstyled resume-education-list">
+                              <li class="mb-3">
+                                 <div class="resume-degree font-weight-bold">Master's degree, Mobile Systems</div>
+                                 <div class="resume-degree-org text-muted">Hochschule Furtwangen</div>
+                                 <div class="resume-degree-time text-muted">2020 - 2022</div>
+                              </li>
+                              <li>
+                                 <div class="resume-degree font-weight-bold">Bachelor's degree, Information Technology</div>
+                                 <div class="resume-degree-org text-muted">Universitatea Tehnică a Moldovei</div>
+                                 <div class="resume-degree-time text-muted">2011 - 2015</div>
+                              </li>
+                           </ul>
+                        </section>
+                        <section class="skills-section py-3">
+                           <h3 class="text-uppercase resume-section-heading mb-4">Sprachkenntnisse</h3>
+                           <ul class="list-unstyled resume-lang-list">
+                              <li class="mb-2">Deutsch | Fortgeschritten <span class="text-muted">B2</span></li>
+                              <li class="mb-2">Englisch | Gute Kenntinisse <span class="text-muted">B1</span></li>
+                              <li class="mb-2">Rumänisch | Gute Kenntinisse <span class="text-muted">B2</span></li>
+                              <li class="mb-2">Russisch | Mutterschrache <span class="text-muted"></span></li>
+                           </ul>
+                        </section>
+                        <section class="skills-section py-3">
+                           <h3 class="text-uppercase resume-section-heading mb-4">Interesse</h3>
+                           <ul class="list-unstyled resume-interests-list mb-0">
+                              <li class="mb-2">Laufen</li>
+                              <li class="mb-2">Wandern</li>
+                              <li class="mb-2">Radfahren</li>
+                           </ul>
+                        </section>
+                     </aside>
+                  </div>
+               </div>
+               <hr>
+               <div class="resume-footer text-center">
+                  <ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
+                     <li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="#"><i class="fab fa-github-square fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">github.com/artemcarabash</span></a></li>
+                     <li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="#"><i class="fab fa-linkedin fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">linkedin.com/artemcarabash</span></a></li>
+                  </ul>
+               </div>
+            </article>
+         </div>
+         <footer class="footer text-center py-4">
+         </footer>
+      </div>
+      <script src="assets/js/bootstrap.min.js"></script>       
+   </body>
 </html>
